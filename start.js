@@ -12,7 +12,7 @@ button.addEventListener("click", function () {
   if(store.trim()!==""){
     localStorage.setItem("username", getE); // storing to localstorage to reuse it
     setTimeout(() => {
-      window.location.href = "./index.html";
+      window.location.href = "./home.html";
     }, 00); //500 ms to go to index.html
   }else{
     alert("Please enter name");

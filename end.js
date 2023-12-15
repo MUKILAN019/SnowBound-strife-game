@@ -7,7 +7,7 @@ button.addEventListener("click",function(){
     backgroundsound.volume=0.2;
     backgroundsound.play();
     setTimeout(()=>{
-        window.location.href="./home.html"
+        window.location.href="./index.html"
     },500)
 })
 document.getElementById('winner').addEventListener('click', function() {
