@@ -1,0 +1,129 @@
+.store{
+    display: flex;
+    width: 200px;
+    position: fixed;
+    color: rgb(0, 0, 249);
+    border-radius: 15px;
+} 
+#uc{
+    color: black;
+}
+.store>h2{
+    margin-left: 4px;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    background-image: url(assets/mainbg.jpg);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 800px;
+    z-index: -100;
+}
+.containerflex{
+    display: flex;
+}
+.game-display{
+    height: 100vh;
+    width: 100vh;
+    margin-left: 34%;
+}
+.box{
+    height: 100px;
+    width: 100px;
+    margin: 5px;
+    background-color: rgb(235, 231, 231);
+    border-radius: 0px;
+    border-radius: 2px 2px rgb(135, 133, 133);
+    cursor: pointer;
+}
+.score{
+    display: flex;
+    justify-content: space-around;
+    font-size: xx-large;
+}
+.gift{
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; 
+}
+#santa{
+    width: 21%;
+    position: absolute;
+    left: 13%;
+    top: 450px;
+    transform: translateX(-10%);
+    animation: danceAnimation 2s ease-in-out infinite;
+}
+@keyframes  danceAnimation{
+    0%, 100% {
+        transform: translateY(10);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+#Krampus{
+    width: 21%;
+    position: absolute;
+    right: 7%;
+    top: 380px;
+    transform: translateX(-10%);
+    animation:danceAnim 1s linear infinite;
+}
+@keyframes  danceAnim{
+    0%, 100% {
+        transform: translateX(100);
+    }
+    50% {
+        transform: translateX(-20px);
+    }
+}
+.gift .opened{
+    transform: rotateX(90deg);
+}
+@media only screen and (max-width: 600px) and (min-width:320px) {
+    .container{
+        height: 650px;
+        background-size: 400%;
+    }
+   .box{
+    height: 50px;
+    width: 50px;
+    background-color: black;
+   }
+   .gift{
+    width:50px;
+    
+   }
+   .game-display{
+    margin-top: 60px;
+    margin-left: 15px;
+    width: 90%;
+    height: 20%;
+   }
+   .store{
+    width: 10px;
+   }
+   #val1{
+    font-size: 50px;
+    margin-top: 70px;
+   }
+   #val2{
+    width:10px;
+    font-size: 50px;
+    margin-top:70px;
+   }
+   #santa{
+    width:90px;
+    margin-top: 50px;
+   }
+   #Krampus{
+    width: 90px;
+    margin-top: 90px; 
+   }
+   
+}
