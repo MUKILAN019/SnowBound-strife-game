@@ -24,13 +24,13 @@
             animation: slideIn 0.5s ease-in-out forwards;
         }
         @keyframes slideIn {
-           from {
-            opacity: 0;
-            transform: translateY(100%);
+           from {/*progress from 0%*/
+            opacity: 0;/*making transparents*/
+            transform: translateY(100%);/* Moves the element down by 100% of its own height along the y-axis, making it initially positioned off-screen below.*/
             }
-           to {
-           opacity: 1;
-           transform: translateY(0);
+           to {/*progress up to 100%*/
+           opacity: 1;/*making visable*/
+           transform: translateY(0);/*to original position*/
            }
         }
         #score{
@@ -102,7 +102,7 @@
           <h2 id="text2"></h2>
     </div>
     <div class="santa">
-        <div><img src="assets/santadancing.gif" alt="" class="dance"></div>
+        <div><img src="assets/santadancing.gif" alt="" class="dance"></div><!--Dancing santa claus-->
        <div class="sco"><h1>Score:</h1><h1 id="score">0</h1><div><button id="btn">Play again</button></div></div>
         <div><img src="assets/santadancing.gif" alt="" class="dance"></div>
     </div>

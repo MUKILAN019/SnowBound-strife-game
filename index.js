@@ -1,9 +1,9 @@
-alert("Children! Santa has the magical power to open one extra gift!!")
+alert("Children! Santa has the magical power to open one extra gift!!")//alert
 window.onload=function(){
    backgroundsound();
 }
 function backgroundsound(){
-   let click=new Audio("./assets/jingle-bells.mp3");
+   let click=new Audio("./assets/jingle-bells.mp3");//background music
    click.volume=0.2;
    click.play();
    click.loop=true;
@@ -11,16 +11,17 @@ function backgroundsound(){
 
 let userName = document.getElementById("user");
 userName.innerText = localStorage.getItem("username");
-let AllBoxes = document.querySelectorAll(".box");
+let AllBoxes = document.querySelectorAll(".box");//each and one div
 let ImageGit = document.querySelectorAll(".gift");
-let s = 0;
-let c = 0;
-let a =[];
-let b =[];
+let s = 0;//counting 
+let c = 0;//counting
+let a =[];//empty array
+let b =[];//emty array
 let TickedBoxes = 0;
 let playerScore = document.getElementById("val2");
 let computerScore = document.getElementById("val1");
-let selectdBoxes = [];
+let selectdBoxes = [];//empty array
+//array --> images
 let ImagesArray = [
   "./assets/candy1.png",
   "./assets/candy2.png",
@@ -36,88 +37,84 @@ let ImagesArray = [
   "./assets/danger6.png",
 ];
 function UserclickFunction(event) {
-  let Id = Number(event.target.id);
+  let Id = Number(event.target.id);//if the id is 4 the log in number 4
 
-  AllBoxes[Id].innerHTML = " ";
+  AllBoxes[Id].innerHTML = " ";//effectively clearing its content
 
-  let ImageIndex = ImagesArray[Math.floor(Math.random() * ImagesArray.length)];
+  let ImageIndex = ImagesArray[Math.floor(Math.random() * ImagesArray.length)];//running random number to generate random image in ImagesArray
 
-  let Image = document.createElement("img");
+  let Image = document.createElement("img");//Creating element image
 
-  Image.src = ImageIndex;
+  Image.src = ImageIndex;//running random images
 
-  Image.style.width = "100%";
+  Image.style.width = "100%";//image width 100%
 
-  ImageGit[Id].style.display = "none";
+  ImageGit[Id].style.display = "none";//while clicking gift box the image gifte box display;none
 
-  AllBoxes[Id].appendChild(Image);
-  //   AllBoxes[Id].onclick = null;
+  AllBoxes[Id].appendChild(Image);//the image get append to respective div
 
-  AllBoxes[Id].removeEventListener("click", UserclickFunction);
+  AllBoxes[Id].removeEventListener("click", UserclickFunction);//removing a function for div once one click over
 
-  ImageGit[Id].removeEventListener("click", UserclickFunction);
+  ImageGit[Id].removeEventListener("click", UserclickFunction);//removing a function to gift box
 
-  selectdBoxes.push(Id);
+  selectdBoxes.push(Id);//selected box id tore in selectedboxes
 
-  TickedBoxes++;
-  pointReader(ImageIndex, "Computer");
-  ComputerSelection();
+  TickedBoxes++;//increament for (check 25)
+  pointReader(ImageIndex, "Computer");//calling function with two parameters
+  ComputerSelection();//calling computer to play next
 }
-setTimeout(()=>{
-   
-
-},200)
+//computer turn
 function ComputerSelection() {
-  let ranDomDivNumber = ranDOmGenerateDiv();
-  let ranDomeImage = ranDOmGenerateImage();
+  let ranDomDivNumber = ranDOmGenerateDiv();//calling function for random div generate
+  let ranDomeImage = ranDOmGenerateImage();//calling function for random image generate
 
-  let NumId = ranDomDivNumber;
+  let NumId = ranDomDivNumber; //storing random div in object numId
 
-  if (selectdBoxes.includes(ranDomDivNumber)) {
-    ranDomDivNumber = "";
-    ranDomeImage = "";
-    ComputerSelection();
+  if (selectdBoxes.includes(ranDomDivNumber)) {//if random div avilable
+    ranDomDivNumber = "";//empty string
+    ranDomeImage = "";//empty image
+    ComputerSelection();// calling again computerSelection function
   }
-  ranDomDivNumber = AllBoxes[ranDomDivNumber];
+  ranDomDivNumber = AllBoxes[ranDomDivNumber];//randomdiv  will store in random div
 
-  ranDomeImage = ImagesArray[ranDomeImage];
+  ranDomeImage = ImagesArray[ranDomeImage];//randomimage will store random images
 
-  ranDomDivNumber.innerHTML = " ";
+  ranDomDivNumber.innerHTML = " ";//effectively clearing its content
 
-  let ImageCreation = document.createElement("img");
+  let ImageCreation = document.createElement("img");// creating element image
 
-  ImageCreation.src = ranDomeImage;
+  ImageCreation.src = ranDomeImage;// generating random images
 
-  ImageCreation.style.width = "100%";
+  ImageCreation.style.width = "100%";// image width 100%
 
-  ranDomDivNumber.appendChild(ImageCreation);
+  ranDomDivNumber.appendChild(ImageCreation);//appending random image in div
 
-  ranDomDivNumber.removeEventListener("click", UserclickFunction);
+  ranDomDivNumber.removeEventListener("click", UserclickFunction);//removing function to stop one div to make another random image
 
-  selectdBoxes.push(NumId);
-  TickedBoxes++;
-  pointReader(ranDomeImage, "User");
+  selectdBoxes.push(NumId);//pushing id into selectedboxes
+  TickedBoxes++;//increament (clicking 25)
+  pointReader(ranDomeImage, "User");//calling function with two parameters 
 }
-console.log(AllBoxes);
+console.log(AllBoxes);// output (no any purpose to do here)
 
 for (let i = 0; i < AllBoxes.length; i++) {
   AllBoxes[i].addEventListener("click", UserclickFunction);
 }
 
-function ranDOmGenerateDiv() {
+function ranDOmGenerateDiv() {//function to generate random div
   let ranDomDivNumber = Math.floor(Math.random() * 25);
 
-  return ranDomDivNumber;
+  return ranDomDivNumber;//returning
 }
 
-function ranDOmGenerateImage() {
+function ranDOmGenerateImage() {//function to generate random images
   let ranDomeImage = Math.floor(Math.random() * 12);
 
-  return ranDomeImage;
+  return ranDomeImage;//returning
 }
 
-function pointReader(imageFromArray, Player) {
-  if (Player == "User") {
+function pointReader(imageFromArray, Player) {//function with two parameters
+  if (Player == "User") { //if it's computer
     if (imageFromArray == ImagesArray[0]) {
       s = s + 2;
     } else if (imageFromArray == ImagesArray[1]) {
@@ -143,9 +140,9 @@ function pointReader(imageFromArray, Player) {
     } else if (imageFromArray == ImagesArray[11]) {
       s = s - 2;
     }
-    playerScore.innerText = s;
-    a.push(s)
-  } else if (Player == "Computer") {
+    playerScore.innerText = s;//score to innertext
+    a.push(s)// pushing to array
+  } else if (Player == "Computer") {//if it's player
     if (imageFromArray == ImagesArray[0]) {
       c = c + 2;
     } else if (imageFromArray == ImagesArray[1]) {
@@ -171,9 +168,10 @@ function pointReader(imageFromArray, Player) {
     } else if (imageFromArray == ImagesArray[11]) {
       c = c - 2;
     }
-    computerScore.innerText = c;
-    b.push(c)
+    computerScore.innerText = c;//score to innertext
+    b.push(c)//pushing array
    }
+   //checking for winner
   if (b[12] > a[11] && TickedBoxes == 25) {
    setTimeout(()=>{
       window.location.href = "./win.html";
@@ -187,5 +185,5 @@ function pointReader(imageFromArray, Player) {
          window.location.href = "./home.html";
        },100)
    }
-   localStorage.setItem("score",b[12]);
+   localStorage.setItem("score",b[12]);// storing in localstorage
 }
